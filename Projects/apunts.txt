@@ -1,0 +1,2 @@
+** Javascript **
+# Añadiendo un + adelante de un string, se convierte en un number.

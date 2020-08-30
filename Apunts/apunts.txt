@@ -1,0 +1,239 @@
+# ECMAScript son las especificaciones que el lenguaje debe seguir.
+
+# let solo se puede declarar una vez. Pero puede su valor puede ser sobrescrito.
+# const siempre se debe inicializar. Utilizar const cuando sabemos que el valor no canviará.
+# const en objetos y arreglos: en arreglo se puede modificar los valores pero no volver a inicializar el arreglo.
+
+# Funcion que se ejecuta sola sin necesidad de ejecutar:
+(function(){
+    console.log('Creando un IIFE')
+})();
+
+---------------------
+
+** Otros apuntes de JS **
+
+** Expresiones funcionales **
+# Son funciones anónimas -> var retornaN = function(){} No tienen ningún nombre pero pueden ser declaradas como un var.
+
+** Hoisting **
+# Orden de carga de las funciones, asignaciones y codigo de ejecución.
+
+** JavaScript vainilla **
+# document -> es el objeto que contiene toda la página web.
+# addEventListener -> Es un escuchador que indica al navegador que este atento con la interacción del usuario.
+# querySelectoAll -> Selecciona todos los elementos que pasamos por parámetros.
+# getElementsByClassName -> Busca el elemento pasado por parámetros en este caso, buscará una clase en el fichero HTML (DOM).
+# getElementByTagName -> Busca elementos por el nombre del Tag.
+# getElementById -> Busca elementos por ID.
+# classList -> Retorna si un elemento tiene una clase o no. Con la opción contain indica si tienen la clase pasada por parámetros. La opción add añade una clase pasada por parámetros. La opción remove elimina la clase pasada por parámetros.
+# getComputedStyle -> función del objeto windows. Retorna todos los estilos de la web.
+# style -> permite añadir nuevos estilos. Ej: div.style.backgroundColor='';
+
+** jQuery (Motor de selección) **
+# Espera que el DOM esté cargado: $(document).ready(function(){}); otra manera de escribirlo: $(document).on('DOMContentLoaded',function(){});
+# Convertir a objeto jQuery -> $('')
+# find -> Busca el elemento pasado por parámetros.
+# parent -> Busca el padre de un elemento.
+# children -> El hijo de un elemento.
+# before/after -> Añadir antes o después de un elemento pasado por parámetros en el contenido deseado.
+# prepend -> Añadir el contenido dentro de un elemento (inicio).
+# append -> Igual que prepend pero el contenido se añade al final.
+# appendTo -> Hace lo mismo que append pero el contenido entre parentesis tiene que existir.
+# remove -> Eliminar.
+# on -> Para añadir un event listener.
+# this -> Hace referencia a objeto general. Para convertir this a jQuery hacemos: $(this).
+# data -> Permite obtenir o guardar el valor de un atributo HTML.
+# filter -> Retorna elementos que coincidan con un cierto criterio. Puede hacer de selector o función.
+# text -> Método que muestra el texto de los elementos.
+# callback -> Una función que se ejecuta cuándo todos ha terminado.
+# slideToggle -> Muestra o oculat elementos.
+# keyup -> Cuando clicamos una tecla.
+# css -> Puede hacer de getter o setter sobre un elemento.
+# addClass -> Aplica una clase CSS hacia el objeto.
+# hasClass -> Comprueva si tiene una clase. Retorna True o False.
+# removeClass -> Elimina la clase.
+# toggleClass -> Con este método añadimos add o remove en un elemento sobre una clase.
+# Librerias para hacer animaciones y efectos con jQuery -> velocity.js / green sock
+# animate -> Genera animaciones.
+# each -> permite iterar sobre un objeto jQuery.
+# eq -> Para referirse a un index de una colección.
+# attr -> Permite asociar un atributo a un objeto jQuery. Por ej: src.
+# fadeIn -> Mostrar contenido.
+# siblings -> Obtenemos los hermanos del elemento.
+# $.ajax -> Petición ajax.
+# $.get -> Petición get.
+# $.post -> Petición post.
+# $.getJSON -> Cargar JSON.
+# show y hide -> Para mostrar o oculutar un elemento.
+
+---------------------
+
+# forEach o map otra forma de recorrer arreglos. 
+
+# indexOf -> devuelve la posición de un registro que se encuentra en un array
+
+# scope javascript -> la visibilidad de un valor (var, let, const). El alcance de una variable puede ser de dos tipos global y local.
+
+** DOM **
+# Document contiene toda la página web
+# El dom son las etiquetas, atributos y textos del fichero html
+
+** Traversing **
+# Poder ir del padre hacia el hijo. Y viceversa.
+
+** e **
+# En un evento el valor e contiene toda la información de este evento.
+
+** Event Bubbling **
+# Cuando por ejemplo hacemos clic en un boton, este activa otros eventos hijos.
+
+** Delegation **
+# Se refiere cuando no sabemos donde se hara clic en nuestra app. Y hacemos que una proporción de código se puede hacer clic (una area donde puede tener clics).
+
+** interpolar (Template Strings) **
+# ` `
+let nombre1 = "JavaScript";
+let nombre2 = "awesome";
+console.log(`Sólo quiero decir que ${nombre1} is ${nombre2`);
+
+** Array destructuring **
+# [citas, guardarCitas] -> los dos son un array
+# const [citas, guardarCitas] = useState([]);
+
+** Javascript objects **
+# this permite acceder a los atributos del objeto.
+# prototypes -> Permite que los objetos no queden cargados de funciones. También podemos tener un codigo más organizado. Y por último permite crear funciones solamente disponibles para una classe.
+# En los métodos statics no requiere crear una nueva instancia para utilizarlos.
+# Ejemplo de object literal (Object literal property values can be of any data type, including array literals, functions, and nested object literals):
+var myObject = {
+    sProp: 'some string value',
+    numProp: 2,
+    bProp: false
+};
+# Ejemplo de object constructor
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+
+** Javascript sincrono y asíncrono **
+# Código sincrono -> si tienes un programa de 2 líneas, la línea 2 no puede empezar sin haber terminado la línea 1.
+# Código asíncrono -> puedes tener 2 líneas de código y la línea 2 ejecutarse y finalizar antes que la línea 1 no termine de hacerlo.
+# En javascript la mayor parte de las veces que escribas código asíncrono será cuando interactuas con una API o REST API. 
+# Funciones asíncronas: Callbacks, Promises y Async/Await.
+# Callback -> función dentro de otra función.
+# Promises -> resolve se ejecuta cuando la promesa se cumple y reject cuando no se cumple. Se utilizan las promises cuando no sabemos cuanto tiempo tardara en ejecutarse un proceso. Es importante usar el .then en la promise. Y reject necessita el .catch. El resolve esta asociado con el .then
+# Las promesas en javascript son una manera de conseguir que el código asíncrono se comporte como si fuera síncrono, facilitándonos la vida enormemente.
+
+** Fetch API **
+# Es el substituto de AJAX.
+
+** Arrow Function **
+# Antes
+function(){
+    dasdasda
+}
+# Ahora
+() => {
+
+}
+
+** Async await **
+# Con await podemos bloquear parte del código y no deja continuar hasta que no se complete esta parte del código bloqueada. Una vez resuelta, el hilo de ejecución continuará donde se quedo. 
+
+** Destructuring **
+# Permite extraer valores de un objeto o arreglo.
+
+** Set **
+# Similar a un array pero este no permite valores repetidos.
+
+** Maps **
+# Similares al Set pero este usa llave y valor.
+
+** Módulos **
+# Un módulo en programación nos va a permitir agrupar funcionalidad relacionada en un mismo archivo de esta forma, conforme nuestro proyecto crezca, será más fácil de mantener y estará mejor organizado.
+# La ventaja principal de un módulo es que podremos utilizarlo únicamente donde sea requerido, dejando el resto del programa oculto para el resto del código y también re-utilizar código.
+#Beneficios -> dividir el código en pequeños archivos con funcionalidad relacionada. Un módulo puede ser utilizado fácilmente en otra app. Dependencias. Evitan el conflicto con el nombre de las variables.
+# Dependencias -> Un módulo puede y debe estar conectado con otro módulo, esa relación se conoce como dependencia. Si un módulo requiere una pieza de otro módulo, se dice que "depende de ese módulo". Un ejemplo es Bootstrap, requiere jQuery.
+# La idea de crear módulos también nos ayuda a evitar que si tenemos 2 módulos con la función cliente, estos no tengan un conflicto.
+# Desventajas de utilizar muchos archivos JS -> Cada Script es un llamado HTTP, lo cual hace el sitio web más lento. Cada Script detiene la ejecución mientras se descarga. El manejo de las dependencias es manual: Si tienes una función en el archivo B y se utliza en el archivo A sin haberse cargado, tendrás un problema.
+# Módulo se inicialitza con export.
+
+** Design patterns o Patrones de diseño **
+# Son soluciones de código re-utilizables que se utilizan en problemas comunes en apps de software.
+# Categorías de patrones #
+# De Creación de objetos -> Cada lenguaje tiene su forma de crear objetos, pero es mediante un patrón de diseño de este tipo que se pueden crear objetos que sigan el mismo lineamiento. Ej: Factory, Abstract Factory, Builder, Prototype, Singleton.
+# De Estructura -> Definen como se componen y relacionan los objetos entre si. La idea es que cuando haya cambios, impacten lo menos posible al sistema. Ej: Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy.
+# De Comportamiento -> Definen la interdependecia y comunicación entre objetos, en algunas ocasiones si un objeto cambia, este como afecta a otros objetos que dependen de el. Ej: Template Method, Observer, Mediator, State, Visitor.
+# De Arquitectura -> Definen funcionalidad especifica sobre la arquitectura de una app como carpetas, nombres, que hace cada archivo y como se relacionan. Usualmente los 3 anteriores son utilizados en uno de Arquitectura. MVC (Model View Controller), MVP (Model View Presenter), MVVM (Model View ViewModel), Framework como Maria, SpineJS, Ember, Backbone o Angular siguen estas arquitecturas.
+# Factory -> no saber que clases se van a instanciar pero conforme el programa se ejecute tener distintos tipos de datos que se puedan generar.
+# Singleton -> solo tienes una instancia del objeto. Todos los métodos relacionados con un objeto estan en una sola instancia.
+# Builder pattern -> se trata de crear una abstración (se crea una capa extra) que nos va a permitir crear distintos tipos de objetos.
+# NameSpace -> permite evitar la colisión de nombres en el scope global.
+
+** Array methods **
+# .forEach, .map, .filter, .find, .reduce, .some
+
+** Higher other functions **
+# Una función manda a ejecutar otras funciones. La función toma como argumento una función.
+
+** Storage en el cliente **
+# Guardar datos en el navegador con javascript.
+# Opciones -> Web Storage (localStorage / sessionStorage) i IndexedDB
+# Local y Session Storage -> ambos solo pueden guardar Strings o Cadenas de Textos (No objetos, no arrays, no archivos.)
+# Local Storage -> No se recomienda guardar información sensible. 
+# Session Storage -> Recomendado para información sensible o temporal (nombre, ciudad).
+# IndexedDB -> puede almacenar grandes cantidades de datos estructurados, incluyendo archivos. Utiliza indexes para ser más rápido el acceso a los datos. Recomendado para grandes cantidades de datos.
+# Características -> Es una base de datos completa. Puede guardar arrays, objetos, imágenes y videos. Datos estructurados con una llave. Datos con llave -> valor. Asíncrono. 
+# Desventajas -> no se puede sincronizar con el backend. No se puede utilizar en modo privado (al cerrar se pierde todo). El límite de datos lo pone el navegador. Si el usuario limpia el navegador los datos se van a perder.
+
+** JavaScript Avanzado **
+# La palabra this permitirá reutilitzar funciones con diferente contexto, es decir, diferentes objetos. También es una forma de referirse a que objeto hace referencia cuando una función es ejecutada. (Hara referencia a objeto instanciado)
+# This con implicit binding, this con explicit binding, this con new binding, window binding.
+# Composición -> escribir una serie de funciones y asignarlas al objeto.
+
+** ... ***
+http://www.etnassoft.com/2014/06/03/el-operador-de-propagacion-en-javascript-ecmascript-6-y-polyfill/
+
+https://www.htmlcinco.com/5-cosas-de-javascript-es6-que-todo-desarrollador-web-debe-saber/
+
+** Webpack **
+# Webpack es un bundler (paquete) de módulos para aplicaciones JavaScritp modernas. Webpack procesa la app y mapea todas las dependecias de un módulo, con esto crea uno o varios paquetes o bundlers. Con Webpack podemos importar y usar lenguajes que no son nativos (módulos con dependencias ex: .ts, sass, ...) en Javascript.
+# Webpack Entry (entrada) -> Un punto de entrada que especifica que módulo debe utilizar webpack para comenzar a crear la gráfica de dependencias, webpack se encargará de saber que dependencias tiene este módulo.
+# Webpack Output (salida) -> La salida le dirá a webpack, en que parte debe almacenar el bundle que se ha creado. Normalmente la entrada esta en una carpeta llamada src/ y la salida a una carpeta llamada dist/
+# Webpack Loaders (cargadores) -> webpack solo entiende archivos JavaScript, pero con los loaders puedes cargar otros formatos como sass, less, imágenes, html. Loaders tiene 2 palabras clave: text -> que le dice al archivo webpack que archivos deben ser transformados y use -> que le dice al archivo webpack que loader estamos utilizando para este archivo.
+# Webpack Plugins (complementos) -> Los loaders nos permiten utiliar distintos tipos de módulos y otros formatos. Pero los plugins realizan otro tipo de tareas tales como optimizar el bundle, administración avanzada de los assets, ...
+
+** FullStack React, NodeJS , Express y MongoDB **
+** Servidor - BackEnd - API **
+# npm init
+# npm install express mongoose
+# express es el servidor
+# mongoose es una forma de consultar la base de datos de mongoDB
+# npm install --save-dev nodemon    -> solo para el desarrollo
+# nodemon -> compila siempre los ultimos cambios
+# npm run dev -> para arrancar el proyecto
+** React - FrontEnd **
+# npm create-react-app _nombre_app_ -> instalamos react
+# npm install react-router-dom -> routing
+# npm install axios
+# Habilitar CORS para que los recursos de la API puedan ser intercanviados de un servidor a otro. Tenemos que instalar CORS en el servidor: carpeta API.
+# npm install cors
+# npm install sweetalert2 -> popout mensaje informativo
+** Electron (Desktop) **
+# Permite crear apps de escritorio con HTML, CSS y JavaScript
+# Utiliza nodeJS
+# npm init -> package.json
+# npm i -D electron@latest -> instalar electron dentro del proyecto Desktop (mirar si coincide con la version de node que tienes).
+# npm start -> compilar y abrir app de electron.
+# npm install --save-dev electron-builder -> dependencia que permite crear instaladores
+# Dentro de package.json añadir dentro de script lo siguiente:
+"dist" : "electron-builder -w" la -w significa crear instalador de windows pero si ponemos -m (mac) o -l (linux)
+# npm run dist -> crea un instalador
+
+
+
+
