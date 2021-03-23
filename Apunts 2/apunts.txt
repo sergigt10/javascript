@@ -1,0 +1,14 @@
+# this -> la instancia actual del objeto.
+# object literals -> 
+const dog1 = {
+    name: "Max",
+    colors: ["brown"],
+    age: 5
+}
+# async en una función devuelve una promesa.
+
+** Webpack JS para todos los navegadores**
+# https://github.com/bradtraversy/babel_webpack_starter -> descargar
+# npm install -> en la raíz
+# npm run build -> compilar y crea una carpeta build
+# npm start
